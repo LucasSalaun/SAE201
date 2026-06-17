@@ -1,6 +1,6 @@
 import java.util.*;
 
-Adresse {
+public class Adresse {
     private String numero;
     private String rue;
     private String ville;
@@ -37,5 +37,11 @@ Adresse {
     public void setCodePostale(String cP){
         this.codePostale = cP;
     }
-    //test 
+    
+    public Adresse(String n, String r, String v, String cP) {
+        this.numero = n;
+        this.rue = r;
+        this.ville = v;
+        this.codePostale = cP;
+    }
 }
