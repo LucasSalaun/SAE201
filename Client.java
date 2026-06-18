@@ -4,6 +4,7 @@ public class Client {
     private String prenom;
     private String email;
     private Adresse adresse;
+    private Collection <Billet> listeBillet;
 
     public String getIdentifiant() {
         return identifiant;
@@ -45,12 +46,14 @@ public class Client {
         this.adresse = adresse;
     }
 
-    public Client(String i, String n, String p, String e, Adresse a){
+    public Client(String i, String n, String p, String e, Adresse a, Billet b){
         this.identifiant = i;
         this.nom = n;
         this.prenom = p;
         this.email = e;
         this.adresse = a;
+        listeBillet = new ArrayList<Billet>();
+        listeBillet.add(b);
     }
 
     
