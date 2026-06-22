@@ -1,6 +1,11 @@
-public class Artiste extends Intervenant{
+public class Artiste extends Intervenant {
     
-    private String nom;
+    public Artiste(String nom) {
+        super(nom);
+    }
 
-    
+    @Override
+    public String toString() {
+        return getNom();
+    }
 }
