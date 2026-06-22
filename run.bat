@@ -1,11 +1,12 @@
 @echo off
-:: Se placer dans le dossier courant (files)
-cd /d "%~dp0"
+set JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-21.0.11.10-hotspot"
+set PATH=%JAVA_HOME%\bin;%PATH%
+set JAVAFX_PATH=C:\openjfx-21.0.11_windows-x64_bin-sdk\javafx-sdk-21.0.11\lib
 
-:: Compilation : on compile tous les fichiers .java dans le dossier actuel
-javac --module-path "C:\\javafx-sdk\\lib" --add-modules javafx.controls,javafx.fxml *.java
+echo Compilation en cours...
+javac --module-path %JAVAFX_PATH% --add-modules javafx.controls,javafx.fxml *.java
 
-:: Lancement : on lance la classe Principale qui est dans le paquet par défaut
-java --module-path "C:\\javafx-sdk\\lib" --add-modules javafx.controls,javafx.fxml Principale
+echo Lancement en cours...
+java --module-path %JAVAFX_PATH% --add-modules javafx.controls,javafx.fxml Principale
 
 pause
