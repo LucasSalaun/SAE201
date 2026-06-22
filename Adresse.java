@@ -1,47 +1,32 @@
 import java.util.*;
 
 public class Adresse {
-    private String numero;
     private String rue;
+    private String codePostal;
     private String ville;
-    private String codePostale;
+    private int numero;
 
-    public String getNumero(){
-        return numero;
+    public Adresse(int numero, String rue, String ville, String codePostal) {
+        this.numero = numero;
+        this.rue = rue;
+        this.ville = ville;
+        this.codePostal = codePostal;
     }
 
-    public void setNumero(String n){
-        this.numero = n;
-    }
+    public String getRue() { return rue; }
+    public void setRue(String rue) { this.rue = rue; }
 
-    public String getRue(){
-        return rue;
-    }
+    public String getCodePostal() { return codePostal; }
+    public void setCodePostal(String codePostal) { this.codePostal = codePostal; }
 
-    public void setRue(String r){
-        this.rue = r;
-    }
+    public String getVille() { return ville; }
+    public void setVille(String ville) { this.ville = ville; }
 
-    public String getVille(){
-        return ville;
-    }
+    public int getNumero() { return numero; }
+    public void setNumero(int numero) { this.numero = numero; }
 
-    public void setVille(String v){
-        this.ville = v
-    }
-
-    public String getCodePostale(){
-        return codePostale;
-    }
-
-    public void setCodePostale(String cP){
-        this.codePostale = cP;
-    }
-    
-    public Adresse(String n, String r, String v, String cP) {
-        this.numero = n;
-        this.rue = r;
-        this.ville = v;
-        this.codePostale = cP;
+    @Override
+    public String toString() {
+        return numero + " " + rue + ", " + codePostal + " " + ville;
     }
 }

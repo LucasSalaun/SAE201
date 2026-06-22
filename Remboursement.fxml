@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="CtrlRemboursement"
+      spacing="15" prefWidth="420">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <Label text="Remboursement de billets" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+    <Label text="Sélectionnez le spectacle à rembourser :"/>
+    <ComboBox fx:id="comboSpectacles" prefWidth="380" promptText="Choisir un spectacle..."/>
+
+    <Label text="Billets concernés :"/>
+    <ListView fx:id="listeBilletsARembourser" prefHeight="120"/>
+
+    <Label fx:id="labelModePaiement"/>
+
+    <VBox fx:id="zoneChoixRemboursement" spacing="8" visible="false">
+        <Label text="Paiement par carte. Choisissez le mode de remboursement :"/>
+        <RadioButton fx:id="radioEspece" text="Espèce"/>
+        <RadioButton fx:id="radioCarte"  text="Carte bancaire"/>
+    </VBox>
+
+    <HBox spacing="10">
+        <Button text="Confirmer le remboursement" onAction="#confirmerRemboursement"/>
+        <Button text="Annuler"                    onAction="#annuler"/>
+    </HBox>
+
+    <Label fx:id="labelResultat"/>
+
+</VBox>

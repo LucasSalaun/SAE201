@@ -1,6 +1,7 @@
-public class Artiste extends Intervenant {
-    
-    public Artiste(String nom) {
+public class Orchestre extends Intervenant {
+
+
+    public Orchestre(String nom) {
         super(nom);
     }
 
