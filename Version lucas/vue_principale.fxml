@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packet.MainController">
+    <TabPane prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            
+            <Tab text="Gestion des Clients">
+                <content>
+                    <BorderPane>
+                        <top>
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                                <Label text="Filtrer par Nom :"/>
+                                <TextField fx:id="filtreNom" onKeyTyped="#filtrerClients" prefWidth="120"/>
+                                <Label text="Ville :"/>
+                                <TextField fx:id="filtreVille" onKeyTyped="#filtrerClients" prefWidth="120"/>
+                                <Button text="Réinitialiser" onAction="#reinitialiserFiltre"/>
+                            </HBox>
+                        </top>
+                        <center>
+                            <TableView fx:id="tableClients">
+                                <columns>
+                                    <TableColumn fx:id="colClientId" text="ID" prefWidth="60"/>
+                                    <TableColumn fx:id="colClientNom" text="Nom" prefWidth="120"/>
+                                    <TableColumn fx:id="colClientPrenom" text="Prénom" prefWidth="120"/>
+                                    <TableColumn fx:id="colClientEmail" text="Email" prefWidth="180"/>
+                                    <TableColumn fx:id="colClientVille" text="Ville" prefWidth="120"/>
+                                </columns>
+                            </TableView>
+                        </center>
+                        <bottom>
+                            <VBox spacing="5" style="-fx-background-color: #f4f4f4;">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                                <Label text="Créer un nouveau Client" style="-fx-font-weight: bold;"/>
+                                <HBox spacing="10">
+                                    <TextField fx:id="champId" promptText="Identifiant (ex: C01)" prefWidth="120"/>
+                                    <TextField fx:id="champNom" promptText="Nom" prefWidth="120"/>
+                                    <TextField fx:id="champPrenom" promptText="Prénom" prefWidth="120"/>
+                                    <TextField fx:id="champEmail" promptText="Email" prefWidth="150"/>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <TextField fx:id="champNum" promptText="Numéro de rue" prefWidth="100"/>
+                                    <TextField fx:id="champRue" promptText="Nom de la rue" prefWidth="140"/>
+                                    <TextField fx:id="champCP" promptText="Code Postal" prefWidth="100"/>
+                                    <TextField fx:id="champVille" promptText="Ville" prefWidth="120"/>
+                                    <Button text="Créer le Client" onAction="#ajouterClient" style="-fx-base: #4CAF50; -fx-text-fill: white;"/>
+                                	<Button text="Supprimer le Client sélectionné" onAction="#supprimerClient" style="-fx-base: #f44336; -fx-text-fill: white;"/>
+                                </HBox>
+                            </VBox>
+                        </bottom>
+                    </BorderPane>
+                </content>
+            </Tab>
+
+            <Tab text="Gestion des Billets &amp; Remboursements">
+                <content>
+                    <BorderPane>
+                        <center>
+                            <TableView fx:id="tableBillets">
+                                <columns>
+                                    <TableColumn fx:id="colBilletNum" text="N° Billet" prefWidth="70"/>
+                                    <TableColumn fx:id="colBilletDate" text="Date" prefWidth="90"/>
+                                    <TableColumn fx:id="colBilletHeure" text="Heure" prefWidth="70"/>
+                                    <TableColumn fx:id="colBilletSpectacle" text="Spectacle / Artiste" prefWidth="130"/>
+                                    <TableColumn fx:id="colBilletSalle" text="Salle" prefWidth="100"/>
+                                    <TableColumn fx:id="colBilletMode" text="Paiement" prefWidth="100"/>
+                                    <TableColumn fx:id="colBilletClient" text="Acheté par" prefWidth="150"/>
+                                </columns>
+                            </TableView>
+                        </center>
+                        <bottom>
+                            <VBox spacing="10" style="-fx-background-color: #f4f4f4;">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                                <HBox spacing="20" alignment="CENTER_LEFT">
+                                    <Label text="Achat de billet pour un client" style="-fx-font-weight: bold;"/>
+                                    <Button text="Rembourser le spectacle du billet sélectionné" onAction="#rembourserSpectacle" style="-fx-base: #f44336; -fx-text-fill: white;-fx-font-weight: bold;"/>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <Label text="Client :"/>
+                                    <ComboBox fx:id="comboClients" prefWidth="180" promptText="Sélectionner client"/>
+                                    <TextField fx:id="champBilletNum" promptText="N° Billet" prefWidth="80"/>
+                                    <TextField fx:id="champBilletDate" promptText="Date (ex: 24/06/2026)" prefWidth="130"/>
+                                    <TextField fx:id="champBilletHeure" promptText="Heure (ex: 20h30)" prefWidth="100"/>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <TextField fx:id="champBilletSalle" promptText="Nom de la salle" prefWidth="120"/>
+                                    <ComboBox fx:id="comboTypeIntervenant" prefWidth="110"/>
+                                    <TextField fx:id="champBilletIntervenantNom" promptText="Nom de l'artiste/orchestre" prefWidth="160"/>
+                                    <TextField fx:id="champBilletIntervenantDetail" promptText="Instrument ou Type" prefWidth="140"/>
+                                    <ComboBox fx:id="comboModePaiement" prefWidth="120"/>
+                                    <Button text="Acheter" onAction="#acheterBillet" style="-fx-base: #2196F3; -fx-text-fill: white;"/>
+                                </HBox>
+                            </VBox>
+                        </bottom>
+                    </BorderPane>
+                </content>
+            </Tab>
+
+        </tabs>
+    </TabPane>
+</VBox>
+

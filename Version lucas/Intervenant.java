@@ -1,3 +1,5 @@
+package packet;
+
 public abstract class Intervenant {
     private String nom;
 

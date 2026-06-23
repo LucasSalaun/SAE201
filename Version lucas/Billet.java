@@ -1,3 +1,5 @@
+package packet;
+
 public class Billet {
     private int numero;
     private String date;

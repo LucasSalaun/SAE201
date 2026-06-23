@@ -1,3 +1,5 @@
+package packet;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -96,6 +98,36 @@ public class MainController {
             afficherAlerte("Erreur", "Le numéro de rue doit être un entier valide.");
         }
     }
+    
+    @FXML
+    public void supprimerClient() {
+        Client selectedClient = tableClients.getSelectionModel().getSelectedItem();
+        
+        if (selectedClient == null) {
+            afficherAlerte("Erreur", "Veuillez sélectionner un client dans le tableau.");
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation de suppression");
+        alert.setHeaderText("Vous êtes sur le point de supprimer : " + selectedClient.getNom());
+        alert.setContentText("Êtes vous sur de vouloir continuer ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            masterClients.remove(selectedClient);
+            GestionDonnees.getListeClients().remove(selectedClient);
+            GestionDonnees.sauvegarderDonnees();
+            
+            System.out.println("Client supprimé avec succès.");
+        } else {
+            System.out.println("Suppression annulée.");
+        }
+    }
+
+
+
 
     @FXML
     public void filtrerClients() {

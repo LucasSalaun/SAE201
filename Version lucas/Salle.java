@@ -1,3 +1,5 @@
+package packet;
+
 public class Salle {
     private String nom;
 

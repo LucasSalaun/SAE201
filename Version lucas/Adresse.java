@@ -1,3 +1,5 @@
+package packet;
+
 public class Adresse {
     private String rue;
     private String codePostal;

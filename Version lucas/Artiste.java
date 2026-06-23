@@ -1,3 +1,5 @@
+package packet;
+
 public class Artiste extends Intervenant {
     private String instrument;
 

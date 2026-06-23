@@ -1,3 +1,5 @@
+package packet;
+
 public class Orchestre extends Intervenant {
     private String type;
 

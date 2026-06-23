@@ -1,3 +1,5 @@
+package packet;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,4 +40,10 @@ public class Client {
     public Adresse getAdresse() { return adresse; }
     public void setAdresse(Adresse adresse) { this.adresse = adresse; }
     public List<Billet> getBilletsAchetes() { return billetsAchetes; }
+    
+    @Override
+    public String toString() {
+    	return nom+" "+prenom+" (ID:"+id+")";
+    }
+    
 }
